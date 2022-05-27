@@ -1,5 +1,5 @@
 #header
-header <- dashboardHeader(title = "My Dashboard",
+header <- dashboardHeader(title = "My Dashboard", titleWidth = 300,
                             tags$li(a(href = 'http://www.insp.rns.tn/',
                                       img(src = 'Logo INSP Nouveau.png',
                                           title = "INSP", height = "30px"),
@@ -13,13 +13,13 @@ header <- dashboardHeader(title = "My Dashboard",
 #-------------------------------sidebar----------------------------------------------------------
 
 sidebar <- dashboardSidebar(width = 300,
-                            tags$style(HTML(".fa { font-size: 20px; }")),
+
 
 sidebarMenu(
-      menuItem("acceuil", tabName = "acceuil"),
-      menuItem("A propos SICD" , tabName = "about"),
-      menuItem("statistique national sur \r les causes de deces", tabName = "stat"),
-        menuItem("statistique national sur SICD", tabName = "taux")
+      menuItem("Acceuil", tabName = "acceuil",  icon = icon("home")),
+      menuItem("A propos SICD" , tabName = "about", icon = icon("info-sign", lib = "glyphicon")),
+      menuItem("Statistique national sur \r les causes de deces", tabName = "stat", icon = icon("stats", lib = "glyphicon")),
+        menuItem("Statistique national sur SICD", tabName = "taux", icon = icon("table"))
       ))
 #-------------------------------end sidebar----------------------------------------------------------
 
@@ -28,20 +28,12 @@ sidebarMenu(
 
 #-------------------------------BODY----------------------------------------------------------
 body <- dashboardBody( 
+  skin = "green",
 
 tabItems(
 #tab item Acceuil
-  tabItem("Acceuil",
-      h2("Bienvenue !"),
-      h3("Ce dashboard a  dans le cadre d un projet de collaboration entre le Fonds des
-Nations Unies pour la population et l Institut National de la Sante (INSP)- Ministere de la
-Sante, qui vise a appuyer l INSP dans le renforcement des competences de l unite de
-codification des causes de deces ainsi que la sensibilisation de la
-popultion generale sur l importance de l enregistrement et de la certification
-medicale des deces, et l amelioration de la collecte des certificats de deces."),
-      fluidRow(
-        htmlOutput("frame")
-      )
+  tabItem("acceuil",
+          includeMarkdown("www/home.md")
   ),
 #tab item about
 tabItem("about",
@@ -98,5 +90,5 @@ tabItem("stat",
 #-------------------------------END BODYs----------------------------------------------------------
 
 #-------------------------------UI FINAL----------------------------------------------------------
-dashboardPage(header, sidebar, body)
+dashboardPage(skin = "purple", header, sidebar, body)
 
