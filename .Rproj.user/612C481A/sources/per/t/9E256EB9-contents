@@ -1,0 +1,32 @@
+
+
+shinyServer(function(input,output){
+output$day_selected<-renderInfoBox({
+  infoBox("Date;",Sys.Date(),icon = icon("calendar"),color="yellow")
+})
+  observeEvent(input$titleId11, {
+    file.show(file.path("www","insp.pdf"))
+  })
+  observeEvent(input$titleId44, {
+    output$boxContentUI44 <- renderUI({
+      HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/YL7emxw8OeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+    })
+  })
+  observe({
+    x <- input$data
+    if (x=="2021"){
+      output$plot1 <- renderPlot({
+      barplot(DATAFINAL$SEXE,DATAFINAL$classe_age,
+              col = c("#1b98e0","353436"),
+              beside = TRUE)
+        
+      })
+    
+  }
+})
+  output$region<-renderUI({
+    selectInput("region", "Select Data", choices=getData(DATAFINAL$GOUVERNORAT), selected=region[1])
+  })
+})
+  
+

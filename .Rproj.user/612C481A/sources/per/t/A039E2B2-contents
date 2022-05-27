@@ -1,0 +1,14 @@
+base=read.spss("AMAL13.sav")
+DATAFINAL=data.frame(base)
+table(DATAFINAL$DATE_NAISSANCE_A)  
+summary(DATAFINAL$DATE_NAISSANCE_A)
+i=which(DATAFINAL$DATE_NAISSANCE_A==9998)
+DATAFINAL$DATE_NAISSANCE_A[i]=NA
+age<- DATAFINAL$DATEA - DATAFINAL$DATE_NAISSANCE_A
+DATAFINAL$age=age
+fix(DATAFINAL)
+summary(DATAFINAL$DATEA)
+classe_age=cut(DATAFINAL$age,c(0,1,4,14,44,64,74,150),include.lowest = TRUE,labels=c("<1","1-4","5-14","15-44","45-64","65-74",">=75"))
+DATAFINAL$classe_age=classe_age
+table(DATAFINAL$age,DATAFINAL$classe_age)
+Sys.Date()

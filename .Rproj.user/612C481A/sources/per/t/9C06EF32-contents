@@ -1,0 +1,39 @@
+
+library(tidyverse)
+library(shiny)
+library(elo)
+library(shinydashboard)
+library(shiny)
+library(shinydashboard)
+library(foreign)
+
+
+
+
+
+library(shiny)
+library(shinydashboard)
+library(foreign)
+
+#base=read.spss("AMAL13.sav")
+#DATAFINAL=data.frame(base)
+##table(DATAFINAL$DATE_NAISSANCE_A)  
+##summary(DATAFINAL$DATE_NAISSANCE_A)
+##i=which(DATAFINAL$DATE_NAISSANCE_A==9998)
+##DATAFINAL$DATE_NAISSANCE_A[i]=NA
+##age<- DATAFINAL$DATEA - DATAFINAL$DATE_NAISSANCE_A
+##DATAFINAL$age=age
+##summary(DATAFINAL$DATEA)##
+#View(DATAFINAL)
+##summary(DATAFINAL$age)
+##table(DATAFINAL$age)
+
+nom= c( "Tunis","Ariana","Ben Arous","Manouba"," Nabeul","Zaghouan",
+        "Bizerte","Beja  ","Jendouba","Le Kef","Siliana","Sousse",
+        " Monastir","Mahdia","Sfax","Kairouan"," Kasserine","Sidi Bouzid",
+        "Gabes","Mednine","Tataouine"," Gafsa","Tozeur","Kebili",
+        "Pas de Pr cision")
+
+
+#base1=read.spss("BASE DECES2020_46420.sav")
+#DATAFINAL1=data.frame(base1)
