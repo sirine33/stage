@@ -1,8 +1,15 @@
 #header
-header <- dashboardHeader(title = "My Dashboard", titleWidth = 300,
-                            tags$li(a(href = 'http://www.insp.rns.tn/',
-                                      img(src = 'Logo INSP Nouveau.png',
-                                          title = "INSP", height = "30px"),
+header <- dashboardHeader(title = "Les causes de deces en Tunisie", titleWidth = 330,
+                          dropdownMenu(type = "notifications", headerText = strong("HELP"), icon = icon("question"), badgeStatus = NULL,
+                                       notificationItem(text = "About INSP",icon = icon("spinner"), href = "http://www.insp.rns.tn/" ),
+                                       notificationItem(text = "contact",icon = icon("address-card") ),
+                                       notificationItem(text = "INSP FB",icon = icon("facebook"),href = "https://www.facebook.com/insp2015" ),
+                                       notificationItem(text = "Ministere de la sante", icon = icon("ambulance"),href = "http://www.santetunisie.rns.tn/fr/" ),
+                                       notificationItem( text = "a ajouter",icon = icon("flask"))
+                          ),
+                            tags$li(a(href = 'http://www.santetunisie.rns.tn/fr/',
+                                      img(src = 'sante.png',
+                                          title = "Ministere de sante", height = "30px" , width="50px"),
                                       style = "padding-top:10px; padding-bottom:10px;"),
                                     class = "dropdown"))
 
@@ -12,10 +19,17 @@ header <- dashboardHeader(title = "My Dashboard", titleWidth = 300,
 
 #-------------------------------sidebar----------------------------------------------------------
 
-sidebar <- dashboardSidebar(width = 300,
+sidebar <- dashboardSidebar(width = 330, 
 
 
 sidebarMenu(
+  HTML(paste0(
+    "<br>",
+    "<a href='http://www.insp.rns.tn/' target='_blank'><img style = 'display: block; margin-left: auto; margin-right: auto;' src='insp.png' width = '200'></a>",
+    "<br>",
+    "<p style = 'text-align: center;'><small><a href='#' target='_blank'>INSP logo disclaimer</a></small></p>",
+    "<br>"
+  )),
       menuItem("Acceuil", tabName = "acceuil",  icon = icon("home")),
       menuItem("A propos SICD" , tabName = "about", icon = icon("info-sign", lib = "glyphicon")),
       menuItem("Statistique national sur \r les causes de deces", tabName = "stat", icon = icon("stats", lib = "glyphicon")),
@@ -37,23 +51,7 @@ tabItems(
   ),
 #tab item about
 tabItem("about",
-        h4("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-        incididunt ut labore et dolore magna aliqua. Interdum velit euismod in pellentesque
-         "),      
-        h2("Rapport precis"),
-                
-        box(title = actionLink("titleId11", "rapport sur les causes de deces en Tunisie 2020"), 
-            width = 12, solidHeader = TRUE, status = "primary"),
-        box(title = actionLink("titleId22", "rapport sur les causes de deces en Tunisie 2015 et 2017"), 
-            width = 12, solidHeader = TRUE, status = "primary",uiOutput("boxContentUI22")),
-        box(title = actionLink("titleId33", "rapport sur les causes de deces en Tunisie 2013"), 
-            width = 12, solidHeader = TRUE, status = "primary",uiOutput("boxContentUI33") ),
-        h2("Video"),
-        box(title = actionLink("titleId44", "video 1"), width = 12, solidHeader = TRUE,
-         status = "primary",uiOutput("boxContentUI44") ),
-        h2("Photos"),
-        fluidRow(column(width = 4,img(src="insp.png",height="200px",width="200px")),
-                column(width = 4,img(src="sante.png",height="200px",width="200px")),)
+        includeMarkdown("www/about.md")
                 
         ),#end tab item about
 tabItem("stat",
@@ -79,7 +77,7 @@ tabItem("stat",
         
         
         
-        
+      
         
         
         
@@ -90,5 +88,5 @@ tabItem("stat",
 #-------------------------------END BODYs----------------------------------------------------------
 
 #-------------------------------UI FINAL----------------------------------------------------------
-dashboardPage(skin = "purple", header, sidebar, body)
+dashboardPage(skin = "blue", header, sidebar, body)
 
