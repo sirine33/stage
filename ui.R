@@ -42,7 +42,6 @@ sidebarMenu(
 
 #-------------------------------BODY----------------------------------------------------------
 body <- dashboardBody( 
-  skin = "green",
 
 tabItems(
 #tab item Acceuil
