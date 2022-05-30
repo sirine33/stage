@@ -32,8 +32,8 @@ nom= c( "Tunis","Ariana","Ben Arous","Manouba"," Nabeul","Zaghouan",
         " Monastir","Mahdia","Sfax","Kairouan"," Kasserine","Sidi Bouzid",
         "Gabes","Mednine","Tataouine"," Gafsa","Tozeur","Kebili",
         "Pas de Pr cision")
-Annee<- select(DATAFINAL2,DATEA)
-region<- select(DATAFINAL2,GOUVERNORAU)
-pathG<- select(DATAFINAL2,Pathologie_Global)
+Annee<- select(DATA,DATEA)
+region<- select(DATA,GOUVERNORAU)
+pathG<- select(DATA,Pathologie_Global)
 
 

@@ -32,6 +32,18 @@ amBarplot(x = "Var1", y = "Freq", data = gouv_data, depth = 15, labelRotation = 
 
 age_data=data.frame(addmargins(table(DATAFINAL2$classe_age)))
 amFunnel(data = age_data, inverse = TRUE)
+
+gouv_data=data.frame(addmargins(table(DATA$classe_age)))
+gouv_data$pourc=round(gouv_data$Freq/gouv_data$Freq[dim(gouv_data)[1]]*100,1)
+amBarplot(x = "Var1", y = "Freq", data = gouv_data, depth = 15, labelRotation = -90)
+
+
+gouv_data=data.frame(addmargins(table(DATA$classe_age)))
+gouv_data$pourc=round(gouv_data$Freq/gouv_data$Freq[dim(gouv_data)[1]]*100,1)
+amBarplot(x = "Var1", y = "Freq", data = gouv_data, depth = 15, labelRotation = -90)
+
+sexe_data=data.frame(addmargins(table(DATA$SEXE)))
+amPie(data = sexe_data)
 ##x <- c('Product A', 'Product B', 'Product C')
 ##y <- c(20, 14, 23)
 ##y2 <- c(16,12,27)

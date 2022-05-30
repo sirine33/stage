@@ -2,21 +2,88 @@ base=read.spss("AMAL13.sav")
 DATAFINAL=data.frame(base)
 base2=read.spss("base2020.sav")
 DATAFINAL2=data.frame(base2)
-##view(DATAFINAL2)
-summary(DATAFINAL2$DATEA)
+##view(DATAFINAL)
+summary(DATAFINAL$DATEA)
 table(DATAFINAL$DATE_NAISSANCE_A)  
 summary(DATAFINAL$DATE_NAISSANCE_A)
 i=which(DATAFINAL$DATE_NAISSANCE_A==9998)
 DATAFINAL$DATE_NAISSANCE_A[i]=NA
+fix(DATAFINAL)
 age<- DATAFINAL$DATEA - DATAFINAL$DATE_NAISSANCE_A
 DATAFINAL$age=age
-fix(DATAFINAL)
+## age pour base 2020
+i=which(DATAFINAL2$DATE_NAISSANCE_A==9998)
+DATAFINAL2$DATE_NAISSANCE_A[i]=NA
+age<- DATAFINAL2$DATEA - DATAFINAL2$DATE_NAISSANCE_A
+DATAFINAL2$age=age
+fix(DATAFINAL2)
+##classe age pour 2021
 summary(DATAFINAL$DATEA)
 classe_age=cut(DATAFINAL$age,c(0,1,4,14,44,64,74,150),include.lowest = TRUE,labels=c("<1","1-4","5-14","15-44","45-64","65-74",">=75"))
 DATAFINAL$classe_age=classe_age
 table(DATAFINAL$age,DATAFINAL$classe_age)
 Sys.Date()
+#Ajout des variables
+AgeAnalyse<-NA
+DATAFINAL$AgeAnalyse=AgeAnalyse
+VAR00001<-NA
+DATAFINAL$VAR00001=VAR00001
+cancer<-NA
+DATAFINAL$cancer=cancer
+cancer_C<-NA
+DATAFINAL$cancer_C=cancer_C
+AVP<-NA
+DATAFINAL$AVP=AVP
+Pathologie<-NA
+DATAFINAL$Pathologie=Pathologie
+Pathologie_Global<-NA
+DATAFINAL$Pathologie_Global=Pathologie_Global
+Pathologie_Jev<-NA
+DATAFINAL$Pathologie_Jev=Pathologie_Jev
+Pathologie_Jev_Global<-NA
+DATAFINAL$Pathologie_Jev_Global=Pathologie_Jev_Global
+COLLECTIVITE_LOCALE<-NA
+DATAFINAL$COLLECTIVITE_LOCALE=COLLECTIVITE_LOCALE
+COLLECTIVITE_LOCALE_DECES<-NA
+DATAFINAL$COLLECTIVITE_LOCALE_DECES=COLLECTIVITE_LOCALE_DECES
+N_INSCRIPTION_ORDRE_DES_MEDECINS<-NA
+DATAFINAL$N_INSCRIPTION_ORDRE_DES_MEDECINS=N_INSCRIPTION_ORDRE_DES_MEDECINS
+SPETIALITE<-NA
+DATAFINAL$SPETIALITE=SPETIALITE
+NOM_DEMANDEUR<-NA
+DATAFINAL$NOM_DEMANDEUR=NOM_DEMANDEUR
+CIN_DEMANDEUR<-NA
+DATAFINAL$CIN_DEMANDEUR=CIN_DEMANDEUR
+VAR00002<-NA
+DATAFINAL$VAR00002=VAR00002
+CauseModif<-NA
+DATAFINAL$CauseModif=CauseModif
+DateOfBirth<-NA
+DATAFINAL$DateOfBirth=DateOfBirth
+DateOfDeath<-NA
+DATAFINAL$DateOfDeath=DateOfDeath
+Age_Days<-NA
+DATAFINAL$Age_Days=Age_Days
+Age_years<-NA
+DATAFINAL$Age_years=Age_years
+Sous_Chapitre<-NA
+DATAFINAL$Sous_Chapitre=Sous_Chapitre
+chapitre<-NA
+DATAFINAL$chapitre=chapitre
+PrimaryLast<-NA
+DATAFINAL$PrimaryLast=PrimaryLast
+DATAFINAL$CONFORME_AU_MODELE<- NULL
+DATAFINAL2$classe_age<-NULL
+## classe age pour 2020
+classe_age=cut(DATAFINAL2$age,c(0,1,4,14,44,64,74,150),include.lowest = TRUE,labels=c("<1","1-4","5-14","15-44","45-64","65-74",">=75"))
+DATAFINAL2$classe_age=classe_age
 
+##fusion des données
+DATAFINAL<-DATAFINAL[,c(1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
+                        41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,
+                        72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,4)]
+DATA<- rbind(DATAFINAL2,DATAFINAL)
+##
 causep<- substr(DATAFINAL$CAUSE_SOUS_JACENTE,1,3)
 table(causep)
 le=substr(causep,1,1)

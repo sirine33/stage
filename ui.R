@@ -26,15 +26,25 @@ sidebarMenu(
   HTML(paste0(
     "<br>",
     "<a href='http://www.insp.rns.tn/' target='_blank'><img style = 'display: block; margin-left: auto; margin-right: auto;' src='insp.png' width = '200'></a>",
-    "<br>",
-    "<p style = 'text-align: center;'><small><a href='#' target='_blank'>INSP logo disclaimer</a></small></p>",
     "<br>"
+    
   )),
       menuItem("Acceuil", tabName = "acceuil",  icon = icon("home")),
       menuItem("A propos SICD" , tabName = "about", icon = icon("info-sign", lib = "glyphicon")),
       menuItem("Statistique national sur \r les causes de deces", tabName = "stat", icon = icon("stats", lib = "glyphicon")),
-        menuItem("Statistique national sur SICD", tabName = "taux", icon = icon("table"))
-      ))
+        menuItem("Statistique national sur SICD", tabName = "taux", icon = icon("table")),
+  HTML(paste0(
+    "<br><br><br><br><br><br><br><br><br>",
+    "<table style='margin-left:auto; margin-right:auto;'>",
+    "<tr>",
+    "<td style='padding: 5px;'><a href='https://www.facebook.com/insp2015' target='_blank'><i class='fab fa-facebook-square fa-lg'></i></a></td>",
+    "<td style='padding: 5px;'><a href='https://www.youtube.com/channel/UCxZZEEy8D0WzXg-NjRkhzaQ/videos' target='_blank'><i class='fab fa-youtube fa-lg'></i></a></td>",
+    "<td style='padding: 5px;'><a href='rtsp@rns.tn' target='_blank'><i class='fa fa-envelope-o fa-lg'></i></a></td>",
+    "<td style='padding: 5px;'><a href='https://github.com/sirine33/stage' target='_blank'><i class='	fab fa-github fa-lg'></i></a></td>",
+    "</tr>",
+    "</table>",
+    "<br>")
+      )))
 #-------------------------------end sidebar----------------------------------------------------------
 
 
@@ -64,14 +74,16 @@ tabItem("stat",
 
 
         fluidRow(box(title="filter par",status = "primary",solidHeader = T,width ="auto",
-          box(solidHeader = T,width = 3,selectInput("Annee","Annee sele",c(Annee))),
-          box(solidHeader = T,width = 3,selectInput("Gouvernorat","gouvernorat",c(region))),
-          box(solidHeader = T,width = 3,selectInput("Chapitre","Chapitre de deces",c(pathG))),
+          box(solidHeader = T,width = 3,selectInput("Annee","Annee sele",c("Tous",Annee))),
+          box(solidHeader = T,width = 3,selectInput("Gouvernorat","gouvernorat",c("National",region))),
+          box(solidHeader = T,width = 3,selectInput("Chapitre","Chapitre de deces",c("Tous",pathG))),
         )
         ),
         
-        fluidRow(box(title="Repartition selon sous chapitre",status = "primary",solidHeader = T,width ="auto",tableOutput("tab11"))),
+      fluidRow(box(title="Repartition selon Age",status = "primary",solidHeader = T,width ="auto",highchartOutput("plot2"))),
         fluidRow(box(title="Repartition selon sous chapitre",status = "primary",solidHeader = T,width ="auto",highchartOutput("plot1"))),
+    
+    
         
         
         
@@ -80,8 +92,14 @@ tabItem("stat",
         
         
         
-      )#end item stat
+      ),#end item stat
+#tab item taux
+tabItem("taux",
+        fluidRow(box(title="filter par",status = "primary",solidHeader = T,width ="auto",
+                     box(solidHeader = T,width = 4,selectInput("Annee1","Annee sele",c(Annee))),
+                     box(solidHeader = T,width = 4,selectInput("Gouvernorat1","gouvernorat",c(region)))) )
 
+)#end item taux
 )#end tab items
 )#end body
 #-------------------------------END BODYs----------------------------------------------------------

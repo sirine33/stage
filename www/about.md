@@ -1,14 +1,11 @@
+# Qui Sommes Nous !
 <br><br>
-L'Institut National de la Santé s’engage à fournir aux intéressés, dans le cadre de
-collaboration de recherche, des résultats plus détaillés issus du Système d’Information sur
-les Causes de Décès. Par ailleurs, nous signalons que certains résultats peuvent faire l’objet
-de mise à jour régulière.
-Nous demeurons à votre entière disposition pour tout renseignement complémentaire.
+#### L'Institut National de la Santé s’engage à fournir aux intéressés, dans le cadre de collaboration de recherche, des résultats plus détaillés issus du Système d’Information sur les Causes de Décès. Par ailleurs, nous signalons que certains résultats peuvent faire l’objet de mise à jour régulière.
+#### Nous demeurons à votre entière disposition pour tout renseignement complémentaire.
 <br><br>
 ## Rapport Précis 
-<br>
-Les rapports antérieurs sur les statistiques
-nationales des causes de décès sont disponibles : 
+<br><br>
+#### Les rapports antérieurs sur les statistiques nationales des causes de décès sont disponibles : <br><br>
 <ul>
   <li><a href="insp.pdf">Rapport sur les causes de décés 2020</a></li>
   <li><a href="insp.pdf">Rapport sur les causes de décés 2015 et 2017</a></li>
@@ -19,7 +16,14 @@ nationales des causes de décès sont disponibles :
 # Galerie 
 <br>
 
-![photo1](https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/257335155_264813875688712_4761823020738927812_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=dZ0xd4aTv78AX9ZBXgk&_nc_ht=scontent.fnbe1-2.fna&oh=00_AT8H3Z8ZZZl4eJDm7vIvEh4z7BOYQVt9xDQKcQ6eZ18uJQ&oe=62964363)<br>
-![photo2](https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/265266458_279589237544509_6131128803583515284_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=vydaK3I2wpQAX_01PZ6&_nc_ht=scontent.fnbe1-2.fna&oh=00_AT-yTn7xoX7tPZmp0Hz7gYtYea7pCcXxzurxmSoJvZYGqg&oe=62961A5A)<br>
-![photo3](https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/281205170_386177596885672_9183709506164508085_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=efR_0ghl-poAX8SQPs5&_nc_ht=scontent.fnbe1-2.fna&oh=00_AT-NdBr1w8iaDbTe6iEnzh_dp4ddVDffUWh0AfHXp78tMw&oe=6296CA74)
-
+<p float="left">
+  <img src="p1.jpg" width="327" />
+  <img src="p2.jpg" width="327" /> 
+  <img src="p3.jpg" width="327" />
+</p>
+<br>
+<p float="left">
+  <img src="p4.jpg" width="327" />
+  <img src="p5.jpg" width="327" /> 
+  <img src="p6.jpg" width="327" />
+</p>
