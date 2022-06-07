@@ -44,24 +44,75 @@ amBarplot(x = "Var1", y = "Freq", data = gouv_data, depth = 15, labelRotation = 
 
 sexe_data=data.frame(addmargins(table(DATA$SEXE)))
 amPie(data = sexe_data)
-##x <- c('Product A', 'Product B', 'Product C')
-##y <- c(20, 14, 23)
-##y2 <- c(16,12,27)
-##text <- c('27% market share', '24% market share', '19% market share')
-##data <- data.frame(x, y, y2, text)
 
-##fig <- data %>% plot_ly()
-##fig <- fig %>% add_trace(x = ~x, y = ~y, type = 'bar',
-## text = y, textposition = 'auto',
-##marker = list(color = 'rgb(158,202,225)',
-## line = list(color = 'rgb(8,48,107)', width = 1.5)))
-##fig <- fig %>% add_trace(x = ~x, y = ~y2, type = 'bar',
-##text = y2, textposition = 'auto',
-## marker = list(color = 'rgb(58,200,225)',
-## line = list(color = 'rgb(8,48,107)', width = 1.5)))
-##fig <- fig %>% layout(title = "January 2013 Sales Report",
-##barmode = 'group',
-##  xaxis = list(title = ""),
-## yaxis = list(title = ""))
-
-##fig
+sexe_age=data.frame(addmargins(table(DATA$SEXE,DATA$classe_age)))
+sexe_ageM=sexe_age[sexe_age$Var1=="Masculin",]
+dim(sexe_ageM)
+sexe_ageF=sexe_age[sexe_age$Var1=="Feminin",]
+dim(sexe_ageF)
+f=cbind(sexe_ageM,sexe_ageF)
+colnames(f)=c("SexeM","Age","Masculin","SexeF","Age2","Feminin")
+F1=f[,c(2,3,6)]
+amBarplot(x = "Age", y = c("Masculin", "Feminin"), data = F1, 
+          groups_color = c("#4682B4", "#8B0000"))
+## sexe et gouvernorat
+gouv_data=data.frame(addmargins(table(DATA$SEXE,DATA$GOUVERNORAU)))
+gouv_data1=gouv_data[gouv_data$Var2=="Tunis",]
+gouv_data1$pourc=round(gouv_data1$Freq/gouv_data1$Freq[dim(gouv_data1)[1]]*100,1)
+gouv_data1[-dim(gouv_data1)[1],] %>% hchart("pie",hcaes(x =Var1,y=pourc ),name="pourcentage")
+##classe age par gouvernorat
+gouv_data=data.frame(addmargins(table(DATA$classe_age,DATA$GOUVERNORAU)))
+gouv_data1=gouv_data[gouv_data$Var2=="Tunis",]
+gouv_data1$pourc=round(gouv_data1$Freq/gouv_data1$Freq[dim(gouv_data1)[1]]*100,1)
+amBarplot(x = "Var1", y = "Freq", data = gouv_data1, depth = 15, labelRotation = -90)
+## age et sexe par governorat 
+sexe_age=data.frame(addmargins(table(DATA$SEXE,DATA$classe_age,DATA$GOUVERNORAU)))
+sexe_age2=sexe_age[sexe_age$Var3=="Tunis",]
+sexe_ageM=sexe_age2[sexe_age2$Var1=="Masculin",]
+dim(sexe_ageM)
+sexe_ageF=sexe_age2[sexe_age2$Var1=="Feminin",]
+dim(sexe_ageF)
+f=cbind(sexe_ageM,sexe_ageF)
+colnames(f)=c("SexeM","Age","gouv1","Masculin","SexeF","Age2","gouv2","Feminin")
+F1=f[,c(2,4,8)]
+amBarplot(x = "Age", y = c("Masculin", "Feminin"), data = F1, 
+          groups_color = c("#4682B4", "#8B0000"))
+## sexe par gouvernorat et patho 
+gouv_data=data.frame(addmargins(table(DATA$SEXE,DATA$GOUVERNORAU,DATA$Pathologie_Global)))
+gouv_data1=gouv_data[gouv_data$Var2=="Tunis",]
+gouv_data2=gouv_data1[gouv_data1$Var3=="tumeurs",]
+gouv_data2$pourc=round(gouv_data2$Freq/gouv_data2$Freq[dim(gouv_data2)[1]]*100,1)
+gouv_data2[-dim(gouv_data2)[1],] %>% hchart("pie",hcaes(x =Var1,y=pourc ),name="pourcentage")
+## classe age par gouvernorat et patho
+gouv_data=data.frame(addmargins(table(DATA$classe_age,DATA$GOUVERNORAU,DATA$Pathologie_Global)))
+gouv_data1=gouv_data[gouv_data$Var2=="Tunis",]
+gouv_data2=gouv_data1[gouv_data1$Var3=="tumeurs",]
+gouv_data2$pourc=round(gouv_data2$Freq/gouv_data2$Freq[dim(gouv_data2)[1]]*100,1)
+amBarplot(x = "Var1", y = "Freq", data = gouv_data2, depth = 15, labelRotation = -90)
+## classe age et sexe par gouvernorat et patho
+sexe_age=data.frame(addmargins(table(DATA$SEXE,DATA$classe_age,DATA$GOUVERNORAU,DATA$Pathologie_Global)))
+sexe_age2=sexe_age[sexe_age$Var3=="Tunis",]
+sexe_age3=sexe_age2[sexe_age2$Var4=="tumeurs",]
+sexe_ageM=sexe_age3[sexe_age3$Var1=="Masculin",]
+dim(sexe_ageM)
+sexe_ageF=sexe_age3[sexe_age3$Var1=="Feminin",]
+dim(sexe_ageF)
+f=cbind(sexe_ageM,sexe_ageF)
+colnames(f)=c("SexeM","Age","gouv1","path1","Masculin","SexeF","Age2","gouv2","path2","Feminin")
+F1=f[,c(2,5,10)]
+amBarplot(x = "Age", y = c("Masculin", "Feminin"), data = F1, 
+          groups_color = c("#4682B4", "#8B0000"))
+## timeserie par rapport le mois de deces et le sexe
+sexe_age=data.frame(addmargins(table(DATA$SEXE,DATA$DATEM)))
+sexe_ageM=sexe_age[sexe_age$Var1=="Masculin",]
+dim(sexe_ageM)
+sexe_ageF=sexe_age[sexe_age$Var1=="Feminin",]
+dim(sexe_ageF)
+f=cbind(sexe_ageM,sexe_ageF)
+colnames(f)=c("SexeM","Mois","Masculin","SexeF","Mois2","Feminin")
+F1=f[,c(2,3,6)]
+data('F1')
+amTimeSeries(F1, 'Mois', c('Masculin', 'Feminin'))
+## classe age et pathologie globale
+sexe_age=data.frame(addmargins(table(DATA$classe_age,DATA$Pathologie_Global)))
+amMekko(x = "Var1", y = "Freq", data = sexe_age, legend = TRUE)

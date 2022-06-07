@@ -1,11 +1,11 @@
 #header
-header <- dashboardHeader(title = "Les causes de deces en Tunisie", titleWidth = 330,
+header <- dashboardHeader(title = "Les causes de décès en Tunisie", titleWidth = 330,
                           dropdownMenu(type = "notifications", headerText = strong("HELP"), icon = icon("question"), badgeStatus = NULL,
-                                       notificationItem(text = "About INSP",icon = icon("spinner"), href = "http://www.insp.rns.tn/" ),
-                                       notificationItem(text = "contact",icon = icon("address-card") ),
+                                       notificationItem(text = "A propos INSP",icon = icon("spinner"), href = "http://www.insp.rns.tn/" ),
+                                       notificationItem(text = "contact",icon = icon("address-card") ), href = 
                                        notificationItem(text = "INSP FB",icon = icon("facebook"),href = "https://www.facebook.com/insp2015" ),
-                                       notificationItem(text = "Ministere de la sante", icon = icon("ambulance"),href = "http://www.santetunisie.rns.tn/fr/" ),
-                                       notificationItem( text = "a ajouter",icon = icon("flask"))
+                                       notificationItem(text = "Ministere de la sante", icon = icon("ambulance"),href = "http://www.santetunisie.rns.tn/fr/" )
+                                       
                           ),
                             tags$li(a(href = 'http://www.santetunisie.rns.tn/fr/',
                                       img(src = 'sante.png',
@@ -63,28 +63,52 @@ tabItem("about",
         includeMarkdown("www/about.md")
                 
         ),#end tab item about
+#PARTIE STATISTIQUE NATION AL ANALYSE
 tabItem("stat",
         fluidRow( 
-            box(title = "Dowload power point rapport ",status = "primary", solidHeader = TRUE,collapsible = TRUE,  downloadButton("download_powerpoint", "Download Graph PowerPoint")),
-            box(title = "Dowload data excel ",status = "primary", solidHeader = TRUE,collapsible = TRUE,  downloadButton("download_Data", "Download data excel"),infoBoxOutput("day_selected")) ),
+            box(title = "Télècharger rapport ",status = "primary", solidHeader = TRUE,collapsible = TRUE,  downloadButton("download_rapport", "Download rapport")),
+            box(title = "Télècharger tableau de donnée  ",status = "primary", solidHeader = TRUE,collapsible = TRUE,  downloadButton("download_Data", "Download data excel")) ),
         fluidRow(
-          box(title = "Etat global",status = "warning", solidHeader = TRUE,width = "auto",height = "auto",collapsible = TRUE,tableOutput("TabAA"))),
+          box(title = "Etat global",background = "aqua", solidHeader = TRUE,width = "auto",height = "auto",collapsible = TRUE,dataTableOutput("TabAA"))),
 
 
 
 
-        fluidRow(box(title="filter par",status = "primary",solidHeader = T,width ="auto",
-          box(solidHeader = T,width = 3,selectInput("Annee","Annee sele",c("Tous",Annee))),
-          box(solidHeader = T,width = 3,selectInput("Gouvernorat","gouvernorat",c("National",region))),
-          box(solidHeader = T,width = 3,selectInput("Chapitre","Chapitre de deces",c("Tous",pathG))),
+        fluidRow(box(title="Filter par",status = "primary",solidHeader = T,width ="auto",
+          box(solidHeader = T,width = 3,selectInput("Annee","Année ",c("Tous",Annee))),
+          box(solidHeader = T,width = 3,selectInput("Gouvernorat","Gouvernorat",c("National",region))),
+          box(solidHeader = T,width = 3,selectInput("Chapitre","Chapitre de décès",c("Tous",pathG))),
         )
         ),
         
-      fluidRow(box(title="Repartition selon Age",status = "primary",solidHeader = T,width ="auto",highchartOutput("plot2"))),
-        fluidRow(box(title="Repartition selon sous chapitre",status = "primary",solidHeader = T,width ="auto",highchartOutput("plot1"))),
-    
-    
+ 
+        fluidRow(
+          box(title="Repartition selon le sexe",status = "primary",solidHeader = T,width ="auto",dataTableOutput("tab1")),
+          box(title="",solidHeader = F,width ="auto",highchartOutput("plot1"))
+          ),
         
+        fluidRow(
+          box(title="Repartition selon l'age",status = "primary",solidHeader = T,width ="auto",dataTableOutput("tab2")),
+          box(title="",solidHeader = F,width ="auto",highchartOutput("plot2"))),
+        fluidRow(
+          box(title="Repartition selon gouvernorat",status = "primary",solidHeader = T,width ="auto",dataTableOutput("tabgouv")),
+          box(title="",solidHeader = F,width ="auto",leafletOutput("plotgouv"))
+        ),        
+        
+        
+        fluidRow(
+          box(title="Repartition selon  age et sexe",status = "primary",solidHeader = T,width ="auto",dataTableOutput("tab3")),
+        box(title="",solidHeader = F,width ="auto",highchartOutput("plot3"))
+),        
+
+        fluidRow(
+          box(title="Repartition selon  mois et sexe",status = "primary",solidHeader = T,width ="auto",dataTableOutput("tab4")),
+          box(title="",solidHeader = F,width ="auto",highchartOutput("plot4"))
+        ), 
+fluidRow(
+  box(title="Repartition selon  mois et age",status = "primary",solidHeader = T,width ="auto",highchartOutput("plot5")),
+), 
+         
         
         
         
@@ -96,8 +120,13 @@ tabItem("stat",
 #tab item taux
 tabItem("taux",
         fluidRow(box(title="filter par",status = "primary",solidHeader = T,width ="auto",
-                     box(solidHeader = T,width = 4,selectInput("Annee1","Annee sele",c(Annee))),
-                     box(solidHeader = T,width = 4,selectInput("Gouvernorat1","gouvernorat",c(region)))) )
+                     box(solidHeader = T,width = 4,selectInput("Annee1","Annee sele",c("Tous",Annee))),
+                     box(solidHeader = T,width = 4,selectInput("Gouvernorat1","gouvernorat",c("National",region)))) ),
+        
+        fluidRow(
+          box(title="Taux de couverture",status = "primary",solidHeader = T,width ="auto",amChartsOutput("plot6")),
+        )
+        
 
 )#end item taux
 )#end tab items

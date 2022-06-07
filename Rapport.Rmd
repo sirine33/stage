@@ -1,0 +1,74 @@
+---
+title: "rapport deces"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Statistique national sur les causes de décès
+
+## Répartition selon le Sexe
+
+
+```{r,echo=FALSE,warning=FALSE}
+datatable(data_sex())
+```
+
+
+```{r pressure, echo=FALSE}
+ data_sex()[-dim(data_sex())[1],] %>% hchart("pie",hcaes(x =SEXE,y=Pourcentage ),name="Pourcentage%")%>%
+    hc_exporting(enabled=TRUE,filename="custom-file-name")
+```
+## Répartition selon l'Age
+
+```{r,echo=FALSE,warning=FALSE}
+datatable(data_age())
+```
+
+```{r pressure, echo=FALSE}
+data_age()[-dim(data_age())[1],] %>% hchart("column",hcaes(x =Age,y=Pourcentage ),name="Pourcentage%")%>%
+    hc_exporting(enabled=TRUE,filename="custom-file-name")
+```
+## Répartition selon Age et Sexe
+
+```{r,echo=FALSE,warning=FALSE}
+datatable(data_age_sexe())
+```
+
+```{r pressure, echo=FALSE}
+data_age_sexe() %>% hchart("column",hcaes(x =Age,y=Nombre,group=Sexe ))%>%
+    hc_exporting(enabled=TRUE,filename="custom-file-name")
+```
+## Répartition selon Gouvernorat 
+
+```{r,echo=FALSE,warning=FALSE}
+datatable(maps_data())
+```
+
+```{r pressure, echo=FALSE}
+print(map_pourc_plot())
+```
+## Répartition selon Mois et Sexe 
+
+```{r,echo=FALSE,warning=FALSE}
+datatable(data_mois_sexe())
+```
+
+```{r pressure, echo=FALSE}
+data_mois_sexe() %>% hchart("line",hcaes(x =Mois,y=Nombre,group=Sexe )) %>%
+    hc_exporting(enabled=TRUE,filename="custom-file-name")
+```
+## Répartition selon Mois et Age 
+
+```{r pressure, echo=FALSE}
+hcboxplot(
+    var =data_finall()$DATEM,
+    x = data_finall()$age,
+    outliers = FALSE,
+    color = "#2980b9"
+  ) %>% 
+    hc_chart(type = "column")%>%
+    hc_exporting(enabled=TRUE,filename="custom-file-name")
+```

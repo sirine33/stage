@@ -1,16 +1,22 @@
-
-library(tidyverse)
-library(shiny)
+library(rmarkdown)
+library(openxlsx)
 library(elo)
 library(shiny)
 library(shinydashboard)
 library(foreign)
 library(highcharter)
 library(tidyverse)
-
-
-
-
+library(DT)
+library(rAmCharts)
+library(data.table)
+library(leaflet)
+library(fontawesome)
+library(raster)
+library(readxl)
+library(rAmCharts)
+DATA=read.csv("DATA.csv")
+maps_format<- read_excel("data_map.xlsx")
+m_gouv2<- getData(name="GADM",  country="TUN", level=1) 
 
 
 
@@ -32,8 +38,7 @@ nom= c( "Tunis","Ariana","Ben Arous","Manouba"," Nabeul","Zaghouan",
         " Monastir","Mahdia","Sfax","Kairouan"," Kasserine","Sidi Bouzid",
         "Gabes","Mednine","Tataouine"," Gafsa","Tozeur","Kebili",
         "Pas de Pr cision")
-Annee<- select(DATA,DATEA)
-region<- select(DATA,GOUVERNORAU)
-pathG<- select(DATA,Pathologie_Global)
-
+Annee<-unique(DATA$DATEA)
+region<- unique(DATA$GOUVERNORAU)
+pathG<- unique(DATA$Pathologie_Global)
 

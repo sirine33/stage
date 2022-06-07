@@ -78,7 +78,7 @@ DATAFINAL2$classe_age<-NULL
 classe_age=cut(DATAFINAL2$age,c(0,1,4,14,44,64,74,150),include.lowest = TRUE,labels=c("<1","1-4","5-14","15-44","45-64","65-74",">=75"))
 DATAFINAL2$classe_age=classe_age
 
-##fusion des données
+##fusion des donn?es
 DATAFINAL<-DATAFINAL[,c(1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
                         41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,
                         72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,4)]
@@ -95,9 +95,9 @@ DATAFINAL$ch2=ch2
 fix(DATAFINAL)
 N=rep(0,length(DATAFINAL$le))
 ### Certaines maladies infectieuses et parasitaires ###
-##Chloéra##
+##Chlo?ra##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==0 &DATAFINAL$ch2==0)]=1002
-##Diarrhée et gastro-entérite d'origine présumée infectieuse##
+##Diarrh?e et gastro-ent?rite d'origine pr?sum?e infectieuse##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==0 &DATAFINAL$ch2==9)]=1003
 ##Autres maladies intestinales infectieuses##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 1:8)]=1004
@@ -107,33 +107,33 @@ N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 5:6)]=1005
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 7:9)]=1006
 ##Peste##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==2 &DATAFINAL$ch2==0)]=1007
-##Tétanos##
+##T?tanos##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==3 &DATAFINAL$ch2%in% 3:5)]=1008
-##Diphtérie##
+##Dipht?rie##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==3 &DATAFINAL$ch2==6)]=1009
 ##Coqueluche##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==3 &DATAFINAL$ch2==7)]=1010
-##Infection à méningocoques##
+##Infection ? m?ningocoques##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==3 &DATAFINAL$ch2==9)]=1011
-##Septicémie##
+##Septic?mie##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==4 &DATAFINAL$ch2%in% 0:1)]=1012
 ##Infections dont le mode de transmission est essentiellement sexuel##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==5 &DATAFINAL$ch2%in% 0:9)]=1013
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:4)]=1013
-##Poliomyélite aigue##
+##Poliomy?lite aigue##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==8 &DATAFINAL$ch2==0)]=1014
 ##Rage##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==8 &DATAFINAL$ch2==2)]=1015
 ##Fievre jaune##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==9 &DATAFINAL$ch2==5)]=1016
-##Fiévre virales transmises par des arthropodes et fiévres virales hémorragiques##
+##Fi?vre virales transmises par des arthropodes et fi?vres virales h?morragiques##
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:4)]=1017
 N[which(DATAFINAL$le=="A"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 6:9)]=1017
 ##Rougeole##
 N[which(DATAFINAL$le=="B"& DATAFINAL$ch1==0 &DATAFINAL$ch2==5)]=1018
-##Hépatite virale##
+##H?patite virale##
 N[which(DATAFINAL$le=="B"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 5:9)]=1019
-##Maladies dues au virus de l'immunodéficience humaine [VIH]##
+##Maladies dues au virus de l'immunod?ficience humaine [VIH]##
 N[which(DATAFINAL$le=="B"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:4)]=1020
 ##Paludisme##
 N[which(DATAFINAL$le=="B"& DATAFINAL$ch1==5 &DATAFINAL$ch2%in% 0:4)]=1021
@@ -165,31 +165,31 @@ N[which(DATAFINAL$le=="B"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1025
 N[which(DATAFINAL$le=="B"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:4)]=1025
 N[which(DATAFINAL$le=="B"& DATAFINAL$ch1==9 &DATAFINAL$ch2==9)]=1025
 ###Tumeurs###
-##Tumeur maligne de la lévre,de la cavité buccale et du pharynx##
+##Tumeur maligne de la l?vre,de la cavit? buccale et du pharynx##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:9)]=1027
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:4)]=1027
 ##Tumeur maligne de l'oesophage##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==1 &DATAFINAL$ch2==5)]=1028
 ##Tumeur maligne de l'estomac##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==1 &DATAFINAL$ch2==6)]=1029
-##Tumeur maligne du côlon , du rectum et de l'anus##
+##Tumeur maligne du c?lon , du rectum et de l'anus##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 8:9)]=1030
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:1)]=1030
-##Tumeur maligne du foie et des voies biliaires intrahépatiques##
+##Tumeur maligne du foie et des voies biliaires intrah?patiques##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==2 &DATAFINAL$ch2==2)]=1031
-##tumeur maligne du pancréas##
+##tumeur maligne du pancr?as##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==2 &DATAFINAL$ch2==5)]=1032
 ##Tumeur maligne du larynx##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==3 &DATAFINAL$ch2==2)]=1033
-##Tumeur maligne de la trachée, des bronches et du poumon##
+##Tumeur maligne de la trach?e, des bronches et du poumon##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==3 &DATAFINAL$ch2%in% 3:4)]=1034
-##Mélanome malin de la peau##
+##M?lanome malin de la peau##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==4 &DATAFINAL$ch2==3)]=1035
 ##Tumeur maligne du sein##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==5 &DATAFINAL$ch2==0)]=1036
-##Tumeur maligne du col de l'utérus##
+##Tumeur maligne du col de l'ut?rus##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==5 &DATAFINAL$ch2==3)]=1037
-##Tumeur maligne de parties de l'utérus,autres et non précisées##
+##Tumeur maligne de parties de l'ut?rus,autres et non pr?cis?es##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==5 &DATAFINAL$ch2%in% 4:5)]=1038
 ##Tumeur maligne de l'ovaire##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==5 &DATAFINAL$ch2==6)]=1039
@@ -197,13 +197,13 @@ N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==5 &DATAFINAL$ch2==6)]=1039
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==6 &DATAFINAL$ch2==1)]=1040
 ##Tumeur maligne de vessie##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==6 &DATAFINAL$ch2==7)]=1041
-##Tumeur maligne des méninges, du cerveau et d'autres parties du systéme nerveux central##
+##Tumeur maligne des m?ninges, du cerveau et d'autres parties du syst?me nerveux central##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:2)]=1042
 ##Lymphome non hodgkinien##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 2:5)]=1043
-##Myélome multiple et tumeurs malignes à plasmocytes##
+##My?lome multiple et tumeurs malignes ? plasmocytes##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==9 &DATAFINAL$ch2==0)]=1044
-##Leucémies##
+##Leuc?mies##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 1:5)]=1045
 ##Restant des tumeurs malignes##
 N[which(DATAFINAL$le=="C"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 3:4)]=1046
@@ -229,20 +229,20 @@ N[which(DATAFINAL$le=="D"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:9)]=1047
 N[which(DATAFINAL$le=="D"& DATAFINAL$ch1==3 &DATAFINAL$ch2%in% 0:9)]=1047
 N[which(DATAFINAL$le=="D"& DATAFINAL$ch1==4 &DATAFINAL$ch2%in% 0:8)]=1047
 
-### Maladies du sang et des organes hématopoiétiques et certains troubles du système immunitaire
-##Anémie
+### Maladies du sang et des organes h?matopoi?tiques et certains troubles du syst?me immunitaire
+##An?mie
 N[which(DATAFINAL$le=="D"& DATAFINAL$ch1==5 &DATAFINAL$ch2%in% 0:9)]=1049
 N[which(DATAFINAL$le=="D"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:4)]=1049
-##Reste du chapitre des Maladies du sang et des organes hématopoiétiques et certains troubles du système immunitaire
+##Reste du chapitre des Maladies du sang et des organes h?matopoi?tiques et certains troubles du syst?me immunitaire
 N[which(DATAFINAL$le=="D"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 5:9)]=1050
 N[which(DATAFINAL$le=="D"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1050
 N[which(DATAFINAL$le=="D"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1050
-### Maladies endocriniennes, nutritionnelles et métaboliques
-## Diabète sucré
+### Maladies endocriniennes, nutritionnelles et m?taboliques
+## Diab?te sucr?
 N[which(DATAFINAL$le=="E"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:4)]=1052
 ##Malnutrition 
 N[which(DATAFINAL$le=="E"& DATAFINAL$ch1==4 &DATAFINAL$ch2%in% 0:6)]=1053
-## Reste du chapitre Maladies endocriniennes, nutritionnelles et métaboliques
+## Reste du chapitre Maladies endocriniennes, nutritionnelles et m?taboliques
 N[which(DATAFINAL$le=="E"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:7)]=1054
 N[which(DATAFINAL$le=="E"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 5:9)]=1054
 N[which(DATAFINAL$le=="E"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:9)]=1054
@@ -252,7 +252,7 @@ N[which(DATAFINAL$le=="E"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1054
 N[which(DATAFINAL$le=="E"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1054
 N[which(DATAFINAL$le=="E"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:8)]=1054
 ###Troubles mentaux et du comportement
-##Troubles mentaux et du comportement liés à l'utilisation de substances psycho-actives
+##Troubles mentaux et du comportement li?s ? l'utilisation de substances psycho-actives
 N[which(DATAFINAL$le=="F"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1056
 ##Reste du chapitre Troubles mentaux et du comportement
 N[which(DATAFINAL$le=="F"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1057
@@ -265,12 +265,12 @@ N[which(DATAFINAL$le=="F"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1057
 N[which(DATAFINAL$le=="F"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1057
 N[which(DATAFINAL$le=="F"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1057
 N[which(DATAFINAL$le=="F"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:9)]=1057
-###Maladies  du système nerveux
-##Méningites
+###Maladies  du syst?me nerveux
+##M?ningites
 N[which(DATAFINAL$le=="G"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:3)]=1059
 ##Maladie d'Alzheimer
 N[which(DATAFINAL$le=="G"& DATAFINAL$ch1==3 &DATAFINAL$ch2==0)]=1060
-##Reste du chapitre des Maladies  du système nerveux
+##Reste du chapitre des Maladies  du syst?me nerveux
 N[which(DATAFINAL$le=="G"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 4:9)]=1061
 N[which(DATAFINAL$le=="G"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1061
 N[which(DATAFINAL$le=="G"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:5)]=1061
@@ -298,16 +298,16 @@ N[which(DATAFINAL$le=="H"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:3)]=1063
 N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:9)]=1065
 ##Maladies hypertensives
 N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:3)]=1066
-##Cardiopathies ischémiques
+##Cardiopathies isch?miques
 N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:5)]=1067
 ##Autres cardiopathies
 N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 6:9)]=1068
 N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==3 &DATAFINAL$ch2%in% 0:9)]=1068
 N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==4 &DATAFINAL$ch2%in% 0:9)]=1068
 N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==5 &DATAFINAL$ch2%in% 0:1)]=1068
-##Maladiescérébrovasculaires
+##Maladiesc?r?brovasculaires
 N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1069
-##Athérosclérose
+##Ath?roscl?rose
 N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==7 &DATAFINAL$ch2==0)]=1070
 ##Reste du chapitre des Maladies de l'appareil circulatoire
 N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 1:9)]=1071
@@ -318,9 +318,9 @@ N[which(DATAFINAL$le=="I"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:9)]=1071
 N[which(DATAFINAL$le=="J"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:1)]=1073
 ##Pneumopathies
 N[which(DATAFINAL$le=="J"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 2:8)]=1074
-##Autres affections aigues des voies respiratoires inférieures 
+##Autres affections aigues des voies respiratoires inf?rieures 
 N[which(DATAFINAL$le=="J"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:2)]=1075
-##Maladies chroniques des voies respiratoires inférieures 
+##Maladies chroniques des voies respiratoires inf?rieures 
 N[which(DATAFINAL$le=="J"& DATAFINAL$ch1==4 &DATAFINAL$ch2%in% 0:7)]=1076
 ## Reste du chapitre des Maladies de l'appareil respiratoire
 N[which(DATAFINAL$le=="J"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:6)]=1077
@@ -330,7 +330,7 @@ N[which(DATAFINAL$le=="J"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1077
 N[which(DATAFINAL$le=="J"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1077
 N[which(DATAFINAL$le=="J"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:8)]=1077
 ###Maladies de l'appareil digestif
-##Ulcère de l'estomac et du duodénum
+##Ulc?re de l'estomac et du duod?num
 N[which(DATAFINAL$le=="K"& DATAFINAL$ch1==2&DATAFINAL$ch2%in% 5:7)]=1079
 ##Maladies du foie
 N[which(DATAFINAL$le=="K"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:6)]=1080
@@ -345,7 +345,7 @@ N[which(DATAFINAL$le=="K"& DATAFINAL$ch1==5 &DATAFINAL$ch2%in% 0:9)]=1081
 N[which(DATAFINAL$le=="K"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:6)]=1081
 N[which(DATAFINAL$le=="K"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1081
 N[which(DATAFINAL$le=="K"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:2)]=1081
-###Maladies de la peau et du tissu cellulaire sous-cutané
+###Maladies de la peau et du tissu cellulaire sous-cutan?
 N[which(DATAFINAL$le=="L"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:9)]=1082
 N[which(DATAFINAL$le=="L"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1082
 N[which(DATAFINAL$le=="L"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:9)]=1082
@@ -356,7 +356,7 @@ N[which(DATAFINAL$le=="L"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1082
 N[which(DATAFINAL$le=="L"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1082
 N[which(DATAFINAL$le=="L"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1082
 N[which(DATAFINAL$le=="L"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:9)]=1082
-###Maladies du système ostéo-articulaire, des muscles et du tissu conjonctif
+###Maladies du syst?me ost?o-articulaire, des muscles et du tissu conjonctif
 N[which(DATAFINAL$le=="M"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:9)]=1083
 N[which(DATAFINAL$le=="M"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1083
 N[which(DATAFINAL$le=="M"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:9)]=1083
@@ -367,11 +367,11 @@ N[which(DATAFINAL$le=="M"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1083
 N[which(DATAFINAL$le=="M"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1083
 N[which(DATAFINAL$le=="M"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1083
 N[which(DATAFINAL$le=="M"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:9)]=1083
-###Maladies de l'appareil génito-urinaire
-##Glomérulopathies et maladies rénales tubulo-interstitielles
+###Maladies de l'appareil g?nito-urinaire
+##Glom?rulopathies et maladies r?nales tubulo-interstitielles
 N[which(DATAFINAL$le=="N"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:9)]=1085
 N[which(DATAFINAL$le=="N"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:5)]=1085
-##Reste du chapitre des Maladies de l'appareil génito-urinaire
+##Reste du chapitre des Maladies de l'appareil g?nito-urinaire
 N[which(DATAFINAL$le=="N"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 7:9)]=1086
 N[which(DATAFINAL$le=="N"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:9)]=1086
 N[which(DATAFINAL$le=="N"& DATAFINAL$ch1==3 &DATAFINAL$ch2%in% 0:9)]=1086
@@ -381,10 +381,10 @@ N[which(DATAFINAL$le=="N"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1086
 N[which(DATAFINAL$le=="N"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1086
 N[which(DATAFINAL$le=="N"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1086
 N[which(DATAFINAL$le=="N"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:8)]=1086
-###Grossesse, accouchement et puerpéralité
+###Grossesse, accouchement et puerp?ralit?
 ##Grossesse se terminant par un avortement 
 N[which(DATAFINAL$le=="O"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:7)]=1088
-##Autres décès maternels directs 
+##Autres d?c?s maternels directs 
 N[which(DATAFINAL$le=="O"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1089
 N[which(DATAFINAL$le=="O"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:9)]=1089
 N[which(DATAFINAL$le=="O"& DATAFINAL$ch1==3 &DATAFINAL$ch2%in% 0:9)]=1089
@@ -394,11 +394,11 @@ N[which(DATAFINAL$le=="O"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1089
 N[which(DATAFINAL$le=="O"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1089
 N[which(DATAFINAL$le=="O"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1089
 N[which(DATAFINAL$le=="O"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:2)]=1089
-##Décès maternels indirects 
+##D?c?s maternels indirects 
 N[which(DATAFINAL$le=="O"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 8:9)]=1090
-##Reste du chapitre de Grossesse, accouchement et puerpéralité
+##Reste du chapitre de Grossesse, accouchement et puerp?ralit?
 N[which(DATAFINAL$le=="O"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 5:7)]=1091
-###Certaines affections dont l'origine se situe dans la période périnatale
+###Certaines affections dont l'origine se situe dans la p?riode p?rinatale
 N[which(DATAFINAL$le=="P"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:9)]=1092
 N[which(DATAFINAL$le=="P"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1092
 N[which(DATAFINAL$le=="P"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:9)]=1092
@@ -409,7 +409,7 @@ N[which(DATAFINAL$le=="P"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1092
 N[which(DATAFINAL$le=="P"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1092
 N[which(DATAFINAL$le=="P"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1092
 N[which(DATAFINAL$le=="P"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:6)]=1092
-###Malformations congénitales et anomalies chromosomiques
+###Malformations cong?nitales et anomalies chromosomiques
 N[which(DATAFINAL$le=="Q"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:9)]=1093
 N[which(DATAFINAL$le=="Q"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1093
 N[which(DATAFINAL$le=="Q"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:9)]=1093
@@ -420,7 +420,7 @@ N[which(DATAFINAL$le=="Q"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1093
 N[which(DATAFINAL$le=="Q"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1093
 N[which(DATAFINAL$le=="Q"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1093
 N[which(DATAFINAL$le=="Q"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:9)]=1093
-###Symtomes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs
+###Symtomes, signes et r?sultats anormaux d'examens cliniques et de laboratoire, non class?s ailleurs
 N[which(DATAFINAL$le=="R"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:9)]=1094
 N[which(DATAFINAL$le=="R"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1094
 N[which(DATAFINAL$le=="R"& DATAFINAL$ch1==2 &DATAFINAL$ch2%in% 0:9)]=1094
@@ -431,7 +431,7 @@ N[which(DATAFINAL$le=="R"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1094
 N[which(DATAFINAL$le=="R"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1094
 N[which(DATAFINAL$le=="R"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1094
 N[which(DATAFINAL$le=="R"& DATAFINAL$ch1==9 &DATAFINAL$ch2%in% 0:9)]=1094
-###Causes externes de morbidité et de moralité
+###Causes externes de morbidit? et de moralit?
 ##Accidents de transport
 N[which(DATAFINAL$le=="V"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 1:9)]=1096
 N[which(DATAFINAL$le=="V"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1096
@@ -449,11 +449,11 @@ N[which(DATAFINAL$le=="W"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:9)]=1097
 ##Noyade et submersion accidentelles
 N[which(DATAFINAL$le=="W"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 5:9)]=1098
 N[which(DATAFINAL$le=="W"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:4)]=1098
-##Exposition à la fumée, au feu et aux flammes
+##Exposition ? la fum?e, au feu et aux flammes
 N[which(DATAFINAL$le=="X"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 0:9)]=1099
-##Intoxication accidentelle par des sustances nocives et exposition à ces substanes
+##Intoxication accidentelle par des sustances nocives et exposition ? ces substanes
 N[which(DATAFINAL$le=="X"& DATAFINAL$ch1==4 &DATAFINAL$ch2%in% 0:9)]=1100
-##Lésions auto-infligées 
+##L?sions auto-inflig?es 
 N[which(DATAFINAL$le=="X"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1101
 N[which(DATAFINAL$le=="X"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1101
 N[which(DATAFINAL$le=="X"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:4)]=1101
@@ -487,13 +487,13 @@ N[which(DATAFINAL$le=="Y"& DATAFINAL$ch1==6 &DATAFINAL$ch2%in% 0:9)]=1103
 N[which(DATAFINAL$le=="Y"& DATAFINAL$ch1==7 &DATAFINAL$ch2%in% 0:9)]=1103
 N[which(DATAFINAL$le=="Y"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 0:9)]=1103
 
-###Codes utilisation particulière
+###Codes utilisation particuli?re
 ##SARS
 N[which(DATAFINAL$le=="U"& DATAFINAL$ch1==0 &DATAFINAL$ch2==4)]=1105
 ##COVID19
 N[which(DATAFINAL$le=="U"& DATAFINAL$ch1==0 &DATAFINAL$ch2%in% 7:9)]=1106
 N[which(DATAFINAL$le=="U"& DATAFINAL$ch1==1 &DATAFINAL$ch2%in% 0:2)]=1106
-##Agents bactériens résistant aux antibiotiques
+##Agents bact?riens r?sistant aux antibiotiques
 N[which(DATAFINAL$le=="U"& DATAFINAL$ch1==8 &DATAFINAL$ch2%in% 2:5)]=1107
 
 
@@ -502,9 +502,9 @@ PG=rep(0,length(DATAFINAL$N))
 PG[which(DATAFINAL$N%in% 1002:1025)]=1001 
 ###Tumeurs###
 PG[which(DATAFINAL$N%in% 1027:1047)]=1026
-### Maladies du sang et des organes hématopoiétiques et certains troubles du système immunitaire
+### Maladies du sang et des organes h?matopoi?tiques et certains troubles du syst?me immunitaire
 PG[which(DATAFINAL$N%in% 1049:1050)]=1048
-### Maladies endocriniennes, nutritionnelles et métaboliques
+### Maladies endocriniennes, nutritionnelles et m?taboliques
 PG[which(DATAFINAL$N%in% 1052:1054)]=1051
 PG[which(DATAFINAL$N%in% 1056:1057)]=1055
 PG[which(DATAFINAL$N%in% 1059:1061)]=1058
@@ -523,4 +523,10 @@ PG[which(DATAFINAL$N%in% 1105:1107)]=1104
 
 
 
-write.spss(DATAFINAL,"C:\Users\User1\OneDrive\Bureau")
+write.spss(DATAFINAL,"DATAFINAL.sav")
+
+write.sav(DATAFINAL, "DATAFINAL.sav")
+library(foreign)
+library(haven)
+write.csv(DATA,"DATA.csv",sep=";")
+DATA=read.csv("DATA.csv")

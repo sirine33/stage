@@ -1,7 +1,8 @@
 # Qui Sommes Nous !
 <br><br>
-#### L'Institut National de la Santé s’engage à fournir aux intéressés, dans le cadre de collaboration de recherche, des résultats plus détaillés issus du Système d’Information sur les Causes de Décès. Par ailleurs, nous signalons que certains résultats peuvent faire l’objet de mise à jour régulière.
-#### Nous demeurons à votre entière disposition pour tout renseignement complémentaire.
+#### L'Institut National de la Santé (NSP)-sous la tutelle du Ministère de la Santé- qui est en charge du Système d'Information sur les Causes de Décès (SICD) conformément au décret n°99-1043 de 1999 et à la Circulaire d'application n°4 de 2000 . Les données concernant les causes de décès sont véhiculées grâce aux Certificat Medical de Décès (CMD). <br> <br>
+#### Ce dernier permet la notification du décès , la précision des caractéristiques du défunt et la certification de la cause initiale , la/les cause(s) intermédiaires(s) et la cause immédiate ayant entrainé le décès.<br> <br>
+#### L’objectif principal de ce projet est de développer l’exploitation de ces données et leur visualisation à l’égard du grand public et des spécialistes 
 <br><br>
 ## Rapport Précis 
 <br><br>
